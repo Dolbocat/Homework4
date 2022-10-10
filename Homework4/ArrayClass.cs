@@ -8,5 +8,6 @@ namespace Homework4
 {
     internal class ArrayClass
     {
+
     }
 }

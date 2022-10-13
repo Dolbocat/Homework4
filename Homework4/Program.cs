@@ -1,21 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Dolbocat;
-using System.IO;
+using Dolbocat.Utils;
+using Myarray.Lib;
+
 namespace Homework4
 {
     internal class Program
-    {
+    {        
         static void Main()
-        {
+        {                 
             bool f = true;
 
             while (f)
-            {
-                Dolbocat.Utils.OutputHelpers.PrintInfo(4, "Тавризов Алексей");
+            {               
+                Console.Clear();
+                OutputHelpers.PrintInfo(4, "Тавризов Алексей");
                 Console.WriteLine("Мои задачи");
                 Console.WriteLine("=================================");
                 Console.WriteLine("1 -> Задача 1");
@@ -26,25 +24,38 @@ namespace Homework4
 
                 Console.Write("Введите номер задачи: ");
                 int number = int.Parse(Console.ReadLine());
-
+                
                 switch (number)
                 {
-                    case 1:
-
-                        break;
                     case 0:
                         f = false;
                         Console.WriteLine("Завершение работы приложения ...");
                         break;
-
-                    case 2:
-                        StructInsert();
+                        
+                    case 1:                       
+                        MyArray array = new MyArray(10,2,3);
+                        array.Sum();
+                        Console.WriteLine("Массив:");
+                        array.PrintArray();
+                        Console.WriteLine("Сумма элементов: " + array.Sum());
+                        array.Inverse();
+                        Console.WriteLine("Инвертированный массив:");
+                        array.PrintArray();
+                        array.Multi(4);
+                        Console.WriteLine("Массив, умноженный на 4:");
+                        array.PrintArray();
+                        Console.WriteLine("Количество максимальных элементов: " + array.MaxCount());
+                        Console.ReadLine();
                         break;
 
+                    case 2:
+                        StructInsert();                        
+                        break;
+                        
                     case 3:
                         FailInsert();
                         break;
-
+                        
                     default:
                         Console.WriteLine("Некорректный номер задачи.\nПовторите ввод.");
                         break;
@@ -62,10 +73,8 @@ namespace Homework4
 
                 int count = 3;
                 var account = new Account();
-                account.AccountLogin();
-
                 var pass = new Account();
-                pass.AccountPassword();
+
                 do
                 {
                     Console.Write("Введите логин: ");
@@ -81,12 +90,13 @@ namespace Homework4
                     }
                     else
                     {
-                        Console.WriteLine($"Логин или пароль введен не верно, попробуйте еще раз? осталось {count} попыток");
+                        Console.WriteLine($"Логин или пароль введен не верно, попробуйте еще раз? осталось {count-1} попыток");
                         count--;
                     }
                     if (count == 0)
                     {
-                        Console.WriteLine("Вы истратили попытки ввода и теперь забанены");
+                        Console.WriteLine("Вы истратили попытки ввода и теперь забанены!");
+                        Console.ReadLine();
                     }
                 }
                 while (count > 0);
@@ -100,13 +110,13 @@ namespace Homework4
                     Console.WriteLine("ЛОГИН И ПАРОЛЬ");
                     Console.WriteLine("Через файл");
 
-                string[] lines = File.ReadAllLines("C:\\Users\\Dolbokot\\source\\repos\\Homework4\\LogPass.txt");
+                    SMyArray lines = new SMyArray(AppDomain.CurrentDomain.BaseDirectory + "LogPass.txt");
                     string login = lines[0];
                     string password = lines[1];
                     int count = 3;
 
-                    do
-                    {
+                do
+                {
                     Console.Write("Введите логин: ");
                     string Login = Console.ReadLine();
                     Console.Write("Введите пароль: ");
@@ -120,12 +130,13 @@ namespace Homework4
                     }
                     else
                     {
-                        Console.WriteLine($"Логин или пароль введен не верно, попробуйте еще раз? осталось {count} попыток");
+                        Console.WriteLine($"Логин или пароль введен не верно, попробуйте еще раз? осталось {count-1} попыток");
                         count--;
                     }
                     if (count == 0)
                     {
-                        Console.WriteLine("Вы истратили попытки ввода и теперь забанены");
+                        Console.WriteLine("Вы истратили попытки ввода и теперь забанены!");
+                        Console.ReadLine();
                     }
                 }
                 while (count > 0);
@@ -140,7 +151,7 @@ namespace Homework4
                 }
                 Console.Clear();
              }
-        }        
+        } 
     }
 }
 

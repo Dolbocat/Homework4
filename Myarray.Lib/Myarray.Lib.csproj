@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0A0B06AC-D9C6-4165-895B-9F73942E8546}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Homework4</RootNamespace>
-    <AssemblyName>Homework4</AssemblyName>
+    <ProjectGuid>{CC3CF2AF-6B19-4AB8-8817-5A87EFA42B68}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Myarray.Lib</RootNamespace>
+    <AssemblyName>Myarray.Lib</AssemblyName>
     <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,29 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MyArray.cs" />
-    <Compile Include="SMyArray.cs" />
-    <Compile Include="Struct.LogPass.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="MyArray.Lib.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Dolbocat.Utils\Dolbocat.Utils.csproj">
-      <Project>{85c8e014-8dcf-48c8-8438-a6f25d2e8210}</Project>
-      <Name>Dolbocat.Utils</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Myarray.Lib\Myarray.Lib.csproj">
-      <Project>{cc3cf2af-6b19-4ab8-8817-5a87efa42b68}</Project>
-      <Name>Myarray.Lib</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="LogPass.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
